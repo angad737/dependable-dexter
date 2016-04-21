@@ -1,6 +1,6 @@
 # Angad Singh April 13, 2016, P3 Item Catalog (Resume Catalog)
 import sys
-from sqlalchemy import Column, ForeignKey, Integer, String, Date, Float, DateTime, create_engine
+from sqlalchemy import Column, ForeignKey, Integer, String, Date, Float, DateTime, Boolean, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 import datetime
@@ -45,7 +45,7 @@ class Recruiter(Base):
 		Integer, primary_key = True)
 
 	person_id = Column(
-		Integer, ForeignKey('person.id'))
+		Integer, ForeignKey('person.id'), nullable = False)
 	person = relationship(Person)
 
 	rating = Column(
@@ -73,7 +73,7 @@ class Employer(Base):
 		Integer, primary_key = True)
 
 	person_id = Column(
-		Integer, ForeignKey('person.id'))
+		Integer, ForeignKey('person.id'), nullable = False)
 	person = relationship(Person)
 
 	employerAddress = Column(
@@ -148,6 +148,44 @@ class Helper(Base):
 			'permanentAddress': self.permanentAddress
 		}
 
+class Requirement(Base):
+
+	__tablename__ = 'requirement'
+	print "Requirement table created"
+
+	id = Column(
+		Integer, primary_key = True)
+
+	employer_id = Column(
+		Integer, ForeignKey('employer.id'), nullable = False)
+
+	sisterJobRole = Column(
+		Integer(4), nullable = False)
+
+	jobGap = Column(
+		String(1000))
+
+	taskParam_code = Column(
+		String(250), nullable = False)
+
+	numberOfJobs = Column(
+		Integer(2), nullable = False, default = 1)
+
+	jobZipcode = Column(
+		String(10), nullable = False)
+
+	partTime = Column(
+		Boolean, nullable = False)
+
+	weeklySchedule = Column(
+		String(250))
+	# weeklySchedule
+	# "01234@800/1100" = Mon(0),Tue(1),...,Fri(4) start 8AM end 11AM
+	# "024@800/1100+135@900/1200+012345@1800/2100"
+
+	wage = Column(
+		Integer(6), nullable = False)
+
 class IdDoc(Base):
 
 	__tablename__ = 'iddoc'
@@ -156,7 +194,7 @@ class IdDoc(Base):
 		Integer, primary_key = True)
 
 	helper_id = Column(
-		Integer, ForeignKey('helper.id'))
+		Integer, ForeignKey('helper.id'), nullable = False)
 	helper = relationship(Helper)
 
 	ID_number = Column(
@@ -181,7 +219,7 @@ class Reference(Base):
 		Integer, primary_key = True)
 
 	helper_id = Column(
-		Integer, ForeignKey('helper.id'))
+		Integer, ForeignKey('helper.id'), nullable = False)
 	helper = relationship(Helper)
 
 	refName = Column(
@@ -201,7 +239,7 @@ class Account(Base):
 		Float, primary_key = True)
 
 	person_id = Column(
-		Integer, ForeignKey('person.id'))
+		Integer, ForeignKey('person.id'), nullable = False)
 	person = relationship(Person)
 
 	bankName = Column(
@@ -230,11 +268,14 @@ class Job(Base):
 		Integer, primary_key = True)
 
 	helper_id = Column(
-		Integer, ForeignKey('helper.id'))
+		Integer, ForeignKey('helper.id'), nullable = False)
 	helper = relationship(Helper)
 
-	jobSet = Column(
+	jobRole = Column(
 		Integer(4), nullable = False)
+
+	jobMetric = Column(
+		String(10), nullable = False, default = "mth")
 
 	taskParam_code = Column(
 		String(350), nullable = False)
@@ -262,7 +303,7 @@ class Task(Base):
 		Integer, primary_key = True)
 
 	job_id = Column(
-		Integer, ForeignKey('job.id'))
+		Integer, ForeignKey('job.id'), nullable = False)
 	job = relationship(Job)
 
 	task_Name = Column(

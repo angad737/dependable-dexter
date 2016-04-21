@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker
 from datetime import date
 
 # import DB Setup file
-from bwDB_setup import Base, Person, Employer, Recruiter, Helper, Job, Task, Account, IdDoc, Reference
+from bwDB_setup import Base, Person, Employer, Recruiter, Helper, Job, Task, Account, IdDoc, Reference, Requirement
 
 engine = create_engine('sqlite:///breadwinnerTester.db')
 # Bind the engine to the metadata of the Base class so that the
@@ -147,42 +147,50 @@ session.add(IdDoc1)
 session.commit()
 
 ## Step 2.3: Job
-# jobSet Key:
+# jobRole Key:
 # 1 = Cleaning, 2 = Cooking, 3 = Assistant
 
 job1 = Job(helper_id = newHelper.id,
-	jobSet = 1,
+	jobRole = 100,
+	taskParam_code = "DU+SM+CB",
 	totalWage = 6000)
 session.add(job1)
 session.commit()
 
 job1 = session.query(Job).filter_by(helper_id = newHelper.id).one()
 task1 = Task(job_id = job1.id,
-	task_Name = "Dusting")
+	task_Name = "Dusting",
+	task_code = "DU")
 session.add(task1)
 task2 = Task(job_id = job1.id,
-	task_Name = "Sweeping/Mopping")
+	task_Name = "Sweeping/Mopping",
+	task_code = "SM")
 session.add(task2)
 task3 = Task(job_id = job1.id,
-	task_Name = "Cleaning Bathrooms")
+	task_Name = "Cleaning Bathrooms",
+	task_code = "CB")
 session.add(task3)
 session.commit()
 
 job2 = Job(helper_id = newHelper.id,
-	jobSet = 2,
+	jobRole = 200,
+	taskParam_code = "CM+DW+BG",
 	totalWage = 8000)
 session.add(job2)
 session.commit()
 
-job2 = session.query(Job).filter_by(helper_id = newHelper.id, jobSet = 2).one()
+job2 = session.query(Job).filter_by(helper_id = newHelper.id, jobRole = 200).one()
 task1 = Task(job_id = job2.id,
-	task_Name = "Dusting")
+	task_Name = "Cook Meals",
+	task_code = "CM")
 session.add(task1)
 task2 = Task(job_id = job2.id,
-	task_Name = "Sweeping/Mopping")
+	task_Name = "Clean Dishes",
+	task_code = "DW")
 session.add(task2)
 task3 = Task(job_id = job2.id,
-	task_Name = "Cleaning Bathrooms")
+	task_Name = "Buy Groceries",
+	task_code = "BG")
 session.add(task3)
 session.commit()
 
@@ -210,65 +218,53 @@ session.commit()
 
 ## Step 2.1: Refrences
 
-newHelper = session.query(Helper).filter_by(id = 1).one()
+newHelper = session.query(Helper).filter_by(id = 2).one()
 ref1 = Reference(helper_id = newHelper.id,
-	refName = "Neena Singh",
-	refNumber = 9811265444,
+	refName = "Mr. Sharma",
+	refNumber = 7897897892,
 	refRelation = "Boss")
 session.add(ref1)
 
 ref2 = Reference(helper_id = newHelper.id,
-	refName = "Suresh the Destroyer",
-	refNumber = 8860666612,
-	refRelation = "Daddy Destroyer")
+	refName = "Vikas the Voyeager",
+	refNumber = 9823984309,
+	refRelation = "Vicky Voyeager")
 session.add(ref2)
 session.commit()
 
 ## Step 2.2: IdDoc
 
 IdDoc1 = IdDoc(helper_id = newHelper.id,
-	ID_number = "ABCD1234",
+	ID_number = "qwer1234",
 	ID_type = 2,
 	ID_image = 'http://innovativenurse.com/wp-content/uploads/2012/03/mclovin_license.jpg',
-	ID_expiry = date(2008,06,03))
+	ID_expiry = date(2018,6,3))
 session.add(IdDoc1)
 session.commit()
 
 ## Step 2.3: Job
 
 job1 = Job(helper_id = newHelper.id,
-	jobSet = 1,
-	totalWage = 6000)
+	jobRole = 400,
+	taskParam_code = "DC+CW+GM@500/mth",
+	totalWage = 8000)
 session.add(job1)
 session.commit()
 
 job1 = session.query(Job).filter_by(helper_id = newHelper.id).one()
 task1 = Task(job_id = job1.id,
-	task_Name = "Dusting")
+	task_Name = "Chauffeur",
+	task_code = "DC")
 session.add(task1)
 task2 = Task(job_id = job1.id,
-	task_Name = "Sweeping/Mopping")
+	task_Name = "Car Wash",
+	task_code = "CW")
 session.add(task2)
 task3 = Task(job_id = job1.id,
-	task_Name = "Cleaning Bathrooms")
-session.add(task3)
-session.commit()
-
-job2 = Job(helper_id = newHelper.id,
-	jobSet = 2,
-	totalWage = 8000)
-session.add(job2)
-session.commit()
-
-job2 = session.query(Job).filter_by(helper_id = newHelper.id, jobSet = 2).one()
-task1 = Task(job_id = job2.id,
-	task_Name = "Dusting")
-session.add(task1)
-task2 = Task(job_id = job2.id,
-	task_Name = "Sweeping/Mopping")
-session.add(task2)
-task3 = Task(job_id = job2.id,
-	task_Name = "Cleaning Bathrooms")
+	task_Name = "Garden Maintainence",
+	task_code = "GM@500/mth",
+	optional = 500,
+	task_Metric = "mth")
 session.add(task3)
 session.commit()
 
@@ -293,70 +289,78 @@ session.commit()
 
 ## Step 2.1: Refrences
 
-newHelper = session.query(Helper).filter_by(id = 1).one()
+newHelper = session.query(Helper).filter_by(fName = 'Happy').one()
 ref1 = Reference(helper_id = newHelper.id,
-	refName = "Neena Singh",
-	refNumber = 9811265444,
-	refRelation = "Boss")
+	refName = "Soo Ruur",
+	refNumber = 5002000200,
+	refRelation = "High Priest Suroor")
 session.add(ref1)
 
 ref2 = Reference(helper_id = newHelper.id,
-	refName = "Suresh the Destroyer",
-	refNumber = 8860666612,
-	refRelation = "Daddy Destroyer")
+	refName = "Bappi Lehri",
+	refNumber = 886069911199,
+	refRelation = "Senior Suroor")
 session.add(ref2)
 session.commit()
 
 ## Step 2.2: IdDoc
 
 IdDoc1 = IdDoc(helper_id = newHelper.id,
-	ID_number = "ABCD1234",
+	ID_number = "HASF833",
 	ID_type = 2,
-	ID_image = 'http://innovativenurse.com/wp-content/uploads/2012/03/mclovin_license.jpg',
-	ID_expiry = date(2008,06,03))
+	ID_image = 'http://loremflickr.com/320/240',
+	ID_expiry = date(2018,06,03))
 session.add(IdDoc1)
 session.commit()
 
 ## Step 2.3: Job
 
 job1 = Job(helper_id = newHelper.id,
-	jobSet = 1,
-	totalWage = 6000)
+	jobRole = 200,
+	taskParam_code = "CO+DW+BG",
+	totalWage = 9000)
 session.add(job1)
 session.commit()
 
 job1 = session.query(Job).filter_by(helper_id = newHelper.id).one()
 task1 = Task(job_id = job1.id,
-	task_Name = "Dusting")
+	task_Name = "Cook Meals",
+	task_code = "CO")
 session.add(task1)
 task2 = Task(job_id = job1.id,
-	task_Name = "Sweeping/Mopping")
+	task_Name = "Clean Dishes",
+	task_code = "DW")
 session.add(task2)
 task3 = Task(job_id = job1.id,
-	task_Name = "Cleaning Bathrooms")
+	task_Name = "Buy Groceries",
+	task_code = "BG")
 session.add(task3)
 session.commit()
 
 job2 = Job(helper_id = newHelper.id,
-	jobSet = 2,
+	jobRole = 100,
+	taskParam_code = "DU+SM+CB",
 	totalWage = 8000)
 session.add(job2)
 session.commit()
 
-job2 = session.query(Job).filter_by(helper_id = newHelper.id, jobSet = 2).one()
+job2 = session.query(Job).filter_by(helper_id = newHelper.id, jobRole = 100).one()
 task1 = Task(job_id = job2.id,
-	task_Name = "Dusting")
+	task_Name = "Dusting",
+	task_code = "DU")
 session.add(task1)
 task2 = Task(job_id = job2.id,
-	task_Name = "Sweeping/Mopping")
+	task_Name = "Sweeping/Mopping",
+	task_code = "SM")
 session.add(task2)
 task3 = Task(job_id = job2.id,
-	task_Name = "Cleaning Bathrooms")
+	task_Name = "Cleaning Bathrooms",
+	task_code = "CB")
 session.add(task3)
 session.commit()
 
 ## Now that we have created a Helper complete with IdDocs, Refrences
-########## END--------------------Upload Amarnath
+########## END--------------------Upload Happy
 #########
 
 #########
@@ -380,66 +384,56 @@ session.commit()
 
 ## Step 2.1: Refrences
 
-newHelper = session.query(Helper).filter_by(id = 1).one()
+newHelper = session.query(Helper).filter_by(fName = 'Sincere').one()
 ref1 = Reference(helper_id = newHelper.id,
-	refName = "Neena Singh",
-	refNumber = 9811265444,
-	refRelation = "Boss")
+	refName = "Baljot Kaur",
+	refNumber = 93973920484,
+	refRelation = "Previous Employer")
 session.add(ref1)
 
 ref2 = Reference(helper_id = newHelper.id,
-	refName = "Suresh the Destroyer",
+	refName = "Inderjeet Singh",
 	refNumber = 8860666612,
-	refRelation = "Daddy Destroyer")
+	refRelation = "Previous Employer")
 session.add(ref2)
 session.commit()
 
 ## Step 2.2: IdDoc
 
 IdDoc1 = IdDoc(helper_id = newHelper.id,
-	ID_number = "ABCD1234",
-	ID_type = 2,
+	ID_number = "8934078109",
+	ID_type = 4,
 	ID_image = 'http://innovativenurse.com/wp-content/uploads/2012/03/mclovin_license.jpg',
-	ID_expiry = date(2008,06,03))
+	ID_expiry = date(2019,9,13))
 session.add(IdDoc1)
 session.commit()
 
 ## Step 2.3: Job
 
 job1 = Job(helper_id = newHelper.id,
-	jobSet = 1,
-	totalWage = 6000)
+	jobRole = 100,
+	taskParam_code = "DU+SM+CB+VU",
+	totalWage = 8000)
 session.add(job1)
 session.commit()
 
 job1 = session.query(Job).filter_by(helper_id = newHelper.id).one()
 task1 = Task(job_id = job1.id,
-	task_Name = "Dusting")
+	task_Name = "Dusting",
+	task_code = "DU")
 session.add(task1)
 task2 = Task(job_id = job1.id,
-	task_Name = "Sweeping/Mopping")
+	task_Name = "Sweeping/Mopping",
+	task_code = "SM")
 session.add(task2)
 task3 = Task(job_id = job1.id,
-	task_Name = "Cleaning Bathrooms")
+	task_Name = "Cleaning Bathrooms",
+	task_code = "CB")
 session.add(task3)
-session.commit()
-
-job2 = Job(helper_id = newHelper.id,
-	jobSet = 2,
-	totalWage = 8000)
-session.add(job2)
-session.commit()
-
-job2 = session.query(Job).filter_by(helper_id = newHelper.id, jobSet = 2).one()
-task1 = Task(job_id = job2.id,
-	task_Name = "Dusting")
-session.add(task1)
-task2 = Task(job_id = job2.id,
-	task_Name = "Sweeping/Mopping")
-session.add(task2)
-task3 = Task(job_id = job2.id,
-	task_Name = "Cleaning Bathrooms")
-session.add(task3)
+task4 = Task(job_id = job1.id,
+	task_Name = "Vacuuming",
+	task_code = "VU")
+session.add(task4)
 session.commit()
 
 ## Now that we have created a Helper complete with IdDocs, Refrences
@@ -447,70 +441,3 @@ session.commit()
 ## - (2.1) Refrences
 ## - (2.2) IdDoc
 ## - (2.3) Job
-
-## Step 2.1: Refrences
-
-newHelper = session.query(Helper).filter_by(id = 1).one()
-ref1 = Reference(helper_id = newHelper.id,
-	refName = "Neena Singh",
-	refNumber = 9811265444,
-	refRelation = "Boss")
-session.add(ref1)
-
-ref2 = Reference(helper_id = newHelper.id,
-	refName = "Suresh the Destroyer",
-	refNumber = 8860666612,
-	refRelation = "Daddy Destroyer")
-session.add(ref2)
-session.commit()
-
-## Step 2.2: IdDoc
-
-IdDoc1 = IdDoc(helper_id = newHelper.id,
-	ID_number = "ABCD1234",
-	ID_type = 2,
-	ID_image = 'http://innovativenurse.com/wp-content/uploads/2012/03/mclovin_license.jpg',
-	ID_expiry = date(2008,06,03))
-session.add(IdDoc1)
-session.commit()
-
-## Step 2.3: Job
-
-job1 = Job(helper_id = newHelper.id,
-	jobSet = 1,
-	totalWage = 6000)
-session.add(job1)
-session.commit()
-
-job1 = session.query(Job).filter_by(helper_id = newHelper.id).one()
-task1 = Task(job_id = job1.id,
-	task_Name = "Dusting")
-session.add(task1)
-task2 = Task(job_id = job1.id,
-	task_Name = "Sweeping/Mopping")
-session.add(task2)
-task3 = Task(job_id = job1.id,
-	task_Name = "Cleaning Bathrooms")
-session.add(task3)
-session.commit()
-
-job2 = Job(helper_id = newHelper.id,
-	jobSet = 2,
-	totalWage = 8000)
-session.add(job2)
-session.commit()
-
-job2 = session.query(Job).filter_by(helper_id = newHelper.id, jobSet = 2).one()
-task1 = Task(job_id = job2.id,
-	task_Name = "Dusting")
-session.add(task1)
-task2 = Task(job_id = job2.id,
-	task_Name = "Sweeping/Mopping")
-session.add(task2)
-task3 = Task(job_id = job2.id,
-	task_Name = "Cleaning Bathrooms")
-session.add(task3)
-session.commit()
-
-## Now that we have created a Helper complete with IdDocs, Refrences
-## Jobs and Tasks
