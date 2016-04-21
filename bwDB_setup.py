@@ -93,6 +93,9 @@ class Helper(Base):
 		Integer, ForeignKey('recruiter.id'), nullable = False)
 	recruiter = relationship(Recruiter)
 
+	createdOn = Column(
+		DateTime, default=datetime.datetime.utcnow)
+
 	fName = Column(
 		String(250), nullable = False)
 
@@ -130,6 +133,12 @@ class Helper(Base):
 	permanentAddress = Column(
 		String(250), nullable = False)
 
+	helper_tag = Column(
+		String(20), default = "Standard")
+	# Tags will identify specific helpers for targeted market
+	# Example tags: "NGO:Shahid Foundation"
+	# Example tags: "Migrant Worker"
+
 	@property
 	def serialize(self):
 		return {
@@ -147,6 +156,18 @@ class Helper(Base):
 			'currentAddress':self.currentAddress,
 			'permanentAddress': self.permanentAddress
 		}
+
+class Shortlist(Base):
+
+	__tablename__ = 'shortlist'
+
+	person_id = Column(
+		Integer, ForeignKey('person.id'), primary_key = True, nullable = False)
+	person = relationship(Person)
+
+	helper_id = Column(
+		Integer, ForeignKey('helper.id'), nullable = False)
+	helper = relationship(Helper)
 
 class Requirement(Base):
 
@@ -210,6 +231,32 @@ class IdDoc(Base):
 
 	ID_expiry = Column(
 		Date)
+
+class Schedule(Base):
+
+	__tablename__ = 'schedule'
+
+	id = Column(
+		Integer, primary_key = True)
+
+	helper_id = Column(
+		Integer, ForeignKey('helper.id'), nullable = False)
+	helper = relationship(Helper)
+
+	daysOfWeek = Column(
+		Integer(7), nullable = False, default = 1234567)
+	# 1 = Monday, 2 = Tue, 3 = Wed, ...7 = Sunday
+	# 135 = On Mondays Wednesday Friday
+
+	startTime = Column(
+		Integer(4), nullable = False, default = 800)
+	# Military time: 800 = 8AM, 1400 = 2PM, 1845 = 6:45PM
+
+	endTime = Column(
+		Integer(4), nullable = False, default = 900)
+
+	locationZip = Column(
+		Integer, nullable = False)
 
 class Reference(Base):
 
@@ -317,6 +364,41 @@ class Task(Base):
 
 	task_Metric = Column(
 		String(25))
+
+class Profile(Base):
+
+	__tablename__ = 'profile'
+
+	helper_id = Column(
+		Integer, ForeignKey('helper.id'), primary_key = True)
+	helper = relationship(Helper)
+
+	recruiter_id = Column(
+		Integer, ForeignKey('recruiter.id'), nullable = False)
+	recruiter = relationship(Recruiter)
+
+	partTime = Column(
+		Boolean, nullable = False)
+
+	availabilityZip = Column(
+		String(10), nullable = False, default = "unavailable")
+	# availabilityZip = 12200X means person is available in Gurgaon and neignboring regions
+	# availabilityZip = 122017 means only Palam Vihar Extention area
+	# availabilityZip = "employed" means helper has been employed
+
+	hiringCost = Column(
+		Float, nullable = False, default = 1000)
+
+	status = Column(
+		String(20), nullable = False, default = "Pending Approval")
+
+	# status values:
+	# Pending Approval, In Background Check, Inactive, Active, Employed, Suspended, Blacklisted)
+	lastActive = Column(
+		DateTime, onupdate=datetime.datetime.utcnow)
+
+	uploadedOn = Column(
+		DateTime, default=datetime.datetime.utcnow)
 
 
 

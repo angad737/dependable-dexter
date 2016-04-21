@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker
 from datetime import date
 
 # import DB Setup file
-from bwDB_setup import Base, Person, Employer, Recruiter, Helper, Job, Task, Account, IdDoc, Reference, Requirement
+from bwDB_setup import Base, Person, Employer, Recruiter, Helper, Job, Task, Account, IdDoc, Reference, Requirement, Shortlist, Schedule
 
 engine = create_engine('sqlite:///breadwinnerTester.db')
 # Bind the engine to the metadata of the Base class so that the
@@ -93,6 +93,14 @@ Account1 = Account(accountNumber = 4567456745674567,
 	beneficiaryPhNumber = 9599240963,
 	billingAddress = "HNo X, Nangal, PJ, 948845")
 session.add(Account1)
+session.commit()
+
+
+# Add Employers
+employer = Employer(person_id = 1,
+	employerAddress = "963 Sector 17B, Gurgaon, HR 122001",
+	employerPhone = "9599240963")
+session.add(employer)
 session.commit()
 
 # Step 2.0: Now that we have registered recruiters we may begin to upload
@@ -434,6 +442,14 @@ task4 = Task(job_id = job1.id,
 	task_Name = "Vacuuming",
 	task_code = "VU")
 session.add(task4)
+session.commit()
+
+sch1 = Schedule(helper_id = newHelper.id,
+	daysOfWeek = 12345,
+	startTime = 1100,
+	endTime = 1400,
+	locationZip = 122001)
+session.add(sch1)
 session.commit()
 
 ## Now that we have created a Helper complete with IdDocs, Refrences
