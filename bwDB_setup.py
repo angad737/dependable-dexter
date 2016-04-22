@@ -169,6 +169,9 @@ class Shortlist(Base):
 		Integer, ForeignKey('helper.id'), nullable = False)
 	helper = relationship(Helper)
 
+	shortlistedOn = Column(
+		DateTime, default=datetime.datetime.utcnow)
+
 class Requirement(Base):
 
 	__tablename__ = 'requirement'
@@ -400,6 +403,61 @@ class Profile(Base):
 	uploadedOn = Column(
 		DateTime, default=datetime.datetime.utcnow)
 
+class Interview(Base):
+
+	__tablename__ = 'interview'
+
+	id = Column(
+		Integer, primary_key = True)
+
+	employer_id = Column(
+		Integer, ForeignKey('employer.id'), nullable = False)
+	employer = relationship(Employer)
+
+	helper_id = Column(
+		Integer, ForeignKey('helper.id'), nullable = False)
+	helper = relationship(Helper)
+
+	dateTime = Column(
+		DateTime, nullable = False)
+
+	interviewLocation = Column(
+		String(250), nullable = False)
+
+	status = Column(
+		String(20), nullable = False)
+
+	rating = Column(
+		Integer(1))
+
+class Transaction(Base):
+
+	__tablename__ = 'transaction'
+
+	id = Column(
+		Integer, primary_key=True)
+
+	person_id = Column(
+		Integer, primary_key=True)
+	person = relationship(Person)
+
+	customer_email = Column(
+		String(80), nullable = False)
+
+	phone = Column(
+		Float, nullable = False)
+
+	NameOnCard = Column(
+		String(80), nullable = False)
+
+	card_number = Column(
+		String(16), nullable = False)
+
+	cvc = Column(
+		Integer(4), nullable = False)
+
+	billingAddress = Column(
+		String(250), nullable = False)
 
 
 engine = create_engine('sqlite:///breadwinnerTester.db')
