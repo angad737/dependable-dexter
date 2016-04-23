@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker
 from datetime import date
 
 # import DB Setup file
-from bwDB_setup import Base, Person, Employer, Recruiter, Helper, Job, Task, Account, IdDoc, Reference, Requirement, Shortlist, Schedule
+from bwDB_setup import Base, Person, Employer, Recruiter, Helper, Job, Task, Profile, IdDoc, Reference, Requirement, Shortlist, Schedule, Account
 
 engine = create_engine('sqlite:///breadwinnerTester.db')
 # Bind the engine to the metadata of the Base class so that the
@@ -35,7 +35,7 @@ session = DBSession()
 person1 = Person(name = "Angad Singh",
 	phone = 9599240963,
 	email = "angad737@gmail.com",
-	picture = 'https://lh5.googleusercontent.com/-T-LHT-1l1xQ/AAAAAAAAAAI/AAAAAAAAAtA/WDx6C93qTrE/photo.jpg')
+	picture = "https://lh5.googleusercontent.com/-T-LHT-1l1xQ/AAAAAAAAAAI/AAAAAAAAAtA/WDx6C93qTrE/photo.jpg")
 session.add(person1)
 session.commit() # commits the created person to the DB
 
@@ -51,6 +51,20 @@ person1 = Person(name = "Romit Humagai",
 	phone = 6032898238,
 	email = "romitdevilsworld@hotmail.com",
 	picture = 'http://s3-us-west-2.amazonaws.com/docjokes-com/i/a6/ce/1f/c6/13/oh-hell-no-meme-5058-oh-no-meme-memeshappen_original.jpg?1446204510')
+session.add(person1)
+session.commit() # commits the created person to the DB
+
+person1 = Person(name = "Nitisha Shreshtha",
+	phone = 9829291029,
+	email = "niti123@hotmail.com",
+	picture = 'http://www.kappit.com/img/pics/16523756cedhh_sm.jpg')
+session.add(person1)
+session.commit() # commits the created person to the DB
+
+person1 = Person(name = "Miki Yin",
+	phone = 6032894321,
+	email = "MikiMouse@hotmail.com",
+	picture = 'http://i.imgur.com/SZPJf6J.jpg')
 session.add(person1)
 session.commit() # commits the created person to the DB
 
@@ -103,6 +117,28 @@ employer = Employer(person_id = 1,
 session.add(employer)
 session.commit()
 
+# Add Employers
+employer = Employer(person_id = 1,
+	employerAddress = "1443 Sector 15, Noida, UP 138001",
+	employerPhone = "9958240929")
+session.add(employer)
+session.commit()
+
+# Add Employers
+employer = Employer(person_id = 2,
+	employerAddress = "738 Nangal 13B, Ropar, PJ 14471",
+	employerPhone = "9599240963")
+session.add(employer)
+session.commit()
+
+# Add Employers
+employer = Employer(person_id = 3,
+	employerAddress = "9934 Hyellno Vihar, Jetta, HN 134421",
+	employerPhone = "9929384902")
+session.add(employer)
+session.commit()
+
+
 # Step 2.0: Now that we have registered recruiters we may begin to upload
 # Helpers onto the platform
 
@@ -114,6 +150,7 @@ session.commit()
 #$$$$$$$$$$$Start ----------------- Upload Naresh the Destroyer
 recruit = session.query(Recruiter).filter_by(id = 1).one()
 helper1 = Helper(recruiter_id = recruit.id,
+	picture = 'https://s-media-cache-ak0.pinimg.com/236x/b0/8d/74/b08d7462805471547f5140b2cdf59c48.jpg',
 	fName = "Naresh",
 	lName = "The Destroyer",
 	phone = 8860663620,
@@ -124,13 +161,22 @@ helper1 = Helper(recruiter_id = recruit.id,
 	pJobLocation = "Maruti Factory, Gurgaon",
 	pJobDuration = 48,
 	currentAddress = "87/3 Sukhrali, Gurgaon, HR",
-	permanentAddress = "169 Destroyerville, Bhand, UP")
+	permanentAddress = "169 Destroyerville, Bhand, UP",
+	helper_tag = "100 200")
 session.add(helper1)
 session.commit()
 
+newHelper = session.query(Helper).filter_by(id = 1).one()
+profile = Profile(helper_id = newHelper.id,
+	recruiter_id = newHelper.recruiter_id,
+	partTime = False,
+	availabilityZip = 122001,
+	hiringCost = 1000,
+	status = "Active")
+
 ## Step 2.1: Refrences-------BR-Ref:2 refrences per helper------------
 
-newHelper = session.query(Helper).filter_by(id = 1).one()
+
 ref1 = Reference(helper_id = newHelper.id,
 	refName = "Neena Singh",
 	refNumber = 9811265444,
@@ -210,6 +256,7 @@ session.commit()
 ########## Start ----------------- Upload Amarnath
 recruit = session.query(Recruiter).filter_by(id = 2).one()
 helper1 = Helper(recruiter_id = recruit.id,
+	picture = 'http://www.relatably.com/m/img/indian-memes/ead2685311d70f673e5cd503d02db141437196569c7bc2a8b54a9d292234d31d.jpg',
 	fName = "Amarnath",
 	lName = "The Voyeager",
 	phone = 8800112233,
@@ -220,13 +267,21 @@ helper1 = Helper(recruiter_id = recruit.id,
 	pJobLocation = "American Embessey",
 	pJobDuration = 60,
 	currentAddress = "394 Brigade Colony, Nangal, PJ",
-	permanentAddress = "149 Voyageville, Ryder, PJ")
+	permanentAddress = "149 Voyageville, Ryder, PJ",
+	helper_tag = "400")
 session.add(helper1)
 session.commit()
 
 ## Step 2.1: Refrences
 
 newHelper = session.query(Helper).filter_by(id = 2).one()
+profile = Profile(helper_id = newHelper.id,
+	recruiter_id = newHelper.recruiter_id,
+	partTime = False,
+	availabilityZip = 144023,
+	hiringCost = 1000,
+	status = "Active")
+
 ref1 = Reference(helper_id = newHelper.id,
 	refName = "Mr. Sharma",
 	refNumber = 7897897892,
@@ -281,6 +336,7 @@ session.commit()
 # Start New Helper
 recruit = session.query(Recruiter).filter_by(id = 2).one()
 helper1 = Helper(recruiter_id = recruit.id,
+	picture = 'http://s4.scoopwhoop.com/anj/himesh_reshammiya/903607111.jpg',
 	fName = "Happy",
 	lName = "Himesh",
 	phone = 5002002777,
@@ -291,13 +347,21 @@ helper1 = Helper(recruiter_id = recruit.id,
 	pJobLocation = "Suroor Hospital",
 	pJobDuration = 8,
 	currentAddress = "22 TeraTera, Suroor, MH",
-	permanentAddress = "33 MeraTera, Suroor, MH")
+	permanentAddress = "33 MeraTera, Suroor, MH",
+	helper_tag = "100 200")
 session.add(helper1)
 session.commit()
 
 ## Step 2.1: Refrences
 
 newHelper = session.query(Helper).filter_by(fName = 'Happy').one()
+profile = Profile(helper_id = newHelper.id,
+	recruiter_id = newHelper.recruiter_id,
+	partTime = True,
+	availabilityZip = 142338,
+	hiringCost = 1000,
+	status ="Active")
+
 ref1 = Reference(helper_id = newHelper.id,
 	refName = "Soo Ruur",
 	refNumber = 5002000200,
@@ -376,6 +440,7 @@ session.commit()
 
 recruit = session.query(Recruiter).filter_by(id = 2).one()
 helper1 = Helper(recruiter_id = recruit.id,
+	picture = 'http://www.relatably.com/m/img/funny-indian-memes-facebook/mere-karan-arjun-aayenge-meme.jpg',
 	fName = "Sincere",
 	lName = "Seema",
 	phone = 9949202832,
@@ -386,13 +451,21 @@ helper1 = Helper(recruiter_id = recruit.id,
 	pJobLocation = "144 Sector 15, Noida, UP",
 	pJobDuration = 32,
 	currentAddress = "4895 SincereFolk, Jalandhar, PJ",
-	permanentAddress = "149 Helperville, Weezy, HP")
+	permanentAddress = "149 Helperville, Weezy, HP",
+	helper_tag = "100")
 session.add(helper1)
 session.commit()
 
 ## Step 2.1: Refrences
 
 newHelper = session.query(Helper).filter_by(fName = 'Sincere').one()
+profile = Profile(helper_id = newHelper.id,
+	recruiter_id = newHelper.recruiter_id,
+	partTime = True,
+	availabilityZip = 122017,
+	hiringCost = 1000,
+	status = "Active")
+
 ref1 = Reference(helper_id = newHelper.id,
 	refName = "Baljot Kaur",
 	refNumber = 93973920484,

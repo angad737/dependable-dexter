@@ -1,4 +1,5 @@
 # Angad Singh April 13, 2016, P3 Item Catalog (Resume Catalog)
+import os
 import sys
 from sqlalchemy import Column, ForeignKey, Integer, String, Date, Float, DateTime, Boolean, create_engine
 from sqlalchemy.ext.declarative import declarative_base
@@ -29,7 +30,7 @@ class Person(Base):
 		String(250), nullable = False, unique = True)
 
 	picture = Column(
-		String(250))
+		String, nullable = False, default='https://s-media-cache-ak0.pinimg.com/736x/5f/e4/a5/5fe4a50029a322178248c8d691a1bf44.jpg')
 
 	memberSince = Column(
 		DateTime, default=datetime.datetime.utcnow)
@@ -92,6 +93,9 @@ class Helper(Base):
 	recruiter_id = Column(
 		Integer, ForeignKey('recruiter.id'), nullable = False)
 	recruiter = relationship(Recruiter)
+
+	picture = Column(
+		String, nullable = False, default="http://stuffpoint.com/mrbean/image/295287-mr-bean-mr-bean.jpg")
 
 	createdOn = Column(
 		DateTime, default=datetime.datetime.utcnow)
@@ -175,7 +179,6 @@ class Shortlist(Base):
 class Requirement(Base):
 
 	__tablename__ = 'requirement'
-	print "Requirement table created"
 
 	id = Column(
 		Integer, primary_key = True)
@@ -380,6 +383,9 @@ class Profile(Base):
 		Integer, ForeignKey('recruiter.id'), nullable = False)
 	recruiter = relationship(Recruiter)
 
+	profile_picture = Column(
+		String, nullable=False, default="http://stuffpoint.com/mrbean/image/295287-mr-bean-mr-bean.jpg")
+
 	partTime = Column(
 		Boolean, nullable = False)
 
@@ -438,7 +444,7 @@ class Transaction(Base):
 		Integer, primary_key=True)
 
 	person_id = Column(
-		Integer, primary_key=True)
+		Integer, ForeignKey('person.id'), primary_key=True)
 	person = relationship(Person)
 
 	customer_email = Column(

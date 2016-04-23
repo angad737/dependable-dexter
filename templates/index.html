@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Catalyst</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Breadwinner Landing Page Template">
+    <meta name="author" content="Angad Singh">
+
+    <!-- google web fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,300italic,500,400italic,700' rel='stylesheet' type='text/css'>
+    
+    <!-- CSS Styles -->
+    
+    <!-- bootstrap css -->
+    <link href="{{url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet">
+    
+    <!-- custom css -->
+    <link href="{{url_for('static', filename='css/custom.css') }}" rel="stylesheet">
+    
+    <!-- standart theme css -->
+    <link rel="stylesheet" id="theme" href="{{url_for('static', filename='css/theme1.css') }}" type="text/css" />
+    
+    <!-- Font Awesome Icons css -->
+    <link rel="stylesheet" href="{{url_for('static', filename='font-awesome/css/font-awesome.min.css') }}">
+    
+    <!-- BxSlider and Sequence Slider css -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/jquery.bxslider.css') }}" type="text/css" />
+    <link rel="stylesheet" media="screen" href="{{url_for('static', filename='css/sequence-slider.css') }}" />
+    
+    <!-- Magnific Popup core CSS file -->
+<link rel="stylesheet" href="{{url_for('static', filename='css/magnific-popup.css') }}"> 
+    
+    <!-- Color Switch Panel css -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/color.switch.css') }}" type="text/css" />
+    
+    <!-- Back to Top Button css -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/top.css" type="text/css') }}" />
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src=".{{url_for('static', filename='js/html5shiv.js') }}"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/HH_icon.png') }}">
+	<link rel="apple-touch-icon" href="{{url_for('static', filename='img/idea_logo.png') }}">
+	<link rel="apple-touch-icon" sizes="72x72" href="{{url_for('static', filename='img/idea_logo.png') }}">
+	<link rel="apple-touch-icon" sizes="114x114" href="{{url_for('static', filename='img/idea_logo.png') }}">
+	
+	
+	<!-- Your Google Analytics Code Here!! -->
+
+	
+  </head>
+
+<body>
+  
+<!-- START PRIMARY LAYOUT
+======================== -->
+
+<!-- Back to Top Button (visible after scrolling 1200px down) Change Styles at the top.css file -->
+
+<div class="button-top" id="top-bt">
+
+  <a href="#about"><i class="fa fa-sort-desc fa-3x"></i></a>
+  
+</div>
+
+<!-- Back to Top Button END -->
+
+<!-- NAVBAR -->
+    
+<!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
+
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation" id="menu">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+           <!-- MENU LINKS -->
+           <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav" id="navigation">
+                <li><a href="#about">About</a></li>
+                <li><a href="#service">Service</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#price">Price</a></li>
+                <li><a href="#clients">Clients</a></li>
+                <li><a href="#facts">Facts</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+          </div>
+        </div>
+</nav>
+
+<!-- NAVBAR END -->
+  
+<!-- SEQUENCE SLIDER Change Styles at the sequence-slider.css file --> 
+
+<div id="top-slider">
+	<div class="slider-bg"></div>
+		   <div class="container">
+		
+           <div id="sequence">
+
+				<img class="sequence-prev" src="{{url_for('static', filename='img/button-previous.svg') }}" alt="Previous Frame" />
+				<img class="sequence-next" src="{{url_for('static', filename='img/button-next.svg') }}" alt="Next Frame" />
+
+				<ul class="sequence-canvas">
+					<li class="animate-in">
+						<h2 class="title">Hire Help</h2>
+						<h3 class="subtitle">Swift. Simple. Sophisticated. You get what you see</h3>
+						<img class="slider-image" src="{{url_for('static', filename='img/slider/1.png') }}" alt="Image" />
+					</li>
+					<li>
+						<h2 class="title">Recruit & Earn</h2>
+						<h3 class="subtitle">Good Pay for Good Karma. helping those in need find jobs</h3>
+						<img class="slider-image" src="{{url_for('static', filename='img/slider/2.png') }}" alt="Image" />
+					</li>
+					<li>
+						<h2 class="title">Cross Platform</h2>
+						<h3 class="subtitle">Find us on Google Play Store, Apple App Store</h3>
+						<img class="slider-image" src="{{url_for('static', filename='img/slider/3.png') }}" alt="Image" />
+					</li>
+				</ul>
+
+				<ul class="sequence-pagination">
+					<li><img src="{{url_for('static', filename='img/pagination-dot.svg') }}" alt="Image" /></li>
+					<li><img src="{{url_for('static', filename='img/pagination-dot.svg') }}" alt="Image" /></li>
+					<li><img src="{{url_for('static', filename='img/pagination-dot.svg') }}" alt="Image" /></li>
+				</ul>
+				
+          </div>
+          
+    </div>
+</div>
+
+<!-- SEQUENCE SLIDER END -->
+   
+<!-- ABOUT US -->
+      
+<div id="about">
+
+ <div class="container">
+ 
+   <!-- BUY AND LIKE BUTTONS (YOU CAN DELET THEM IF YOU DONT USE) -->
+  
+   <div class="col-lg-12 col-md-12 col-xs-12">
+      
+      <div class="col-lg-6 col-md-6 col-xs-6 btn-buy">
+        <p><a class="btn btn-primary btn-top" href="{{url_for('showHelpers') }}" role="button">Hire Help</a></p>
+      </div>
+   
+      <div class="col-lg-6 col-md-6 col-xs-6 btn-like">
+        <p><a class="btn btn-primary btn-top" href="{{url_for('showHelpers') }}" role="button">Recruit & Earn</a></p>
+      </div>
+      
+   </div>
+   
+   <!-- BUY AND LIKE BUTTONS END (YOU CAN DELET THEM IF YOU DONT USE) -->
+    
+    <div class="center-block head">
+    
+       <h1>About Us</h1>
+       <hr class="head-border-grey">
+       
+    </div>
+      
+        <div class="agency col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1">
+         <p>We aim for sophistication, and don't stop until its simple. We strive for innovation, happy users are the ripple. Enable communication in community, alone our struggles weigh a quintle. Our tech solution, work together, make our difficulties dwindle.</p>
+         <p>We develop innovative and intuitive technological solutions to some of the biggest challenges our society faces. We socially engineer our process to motivate a massive community of users to find a solution. Breadwinner takes hiring to the next evolutionary level. India's "Big Billion" is made up of fragments of "Many Millions". To bring a sophisticated technological solution to the problem of Unorganized Labor, which amounts to 94% of the of the total labor market as on 2015, our solution must engage, empower and encourage people from all stratas to participate.</p>
+         <p>Breadwinner allows employers to effortlessy swipe to browse, shortlist and schedule interviews to hire helpers in their homes or offices. It engages and engourages tech saavy users to earn by uploading profiles of helpers seeking jobs, helpers who ordinarily dont have access to or are unable to upload great job profiles</p>
+         
+        <div class="skills">
+        
+             <ul id="skillbar">
+			    
+	            <li><span class="skillbar html"></span><p>Cleaning</p></li>
+	   
+	            <li><span class="skillbar css"></span><p>Cooks</p></li>
+
+	            <li><span class="skillbar java"></span><p>Driver</p></li>
+
+	            <li><span class="skillbar php"></span><p>Office Assistant</p></li>
+
+	            <li><span class="skillbar psd"></span><p>Restaurant Staff</p></li>
+            </ul>
+         
+        </div>
+        
+       </div>
+       
+<!-- About Us Slider. Change Styles at the jquery.bxlsider.css file -->
+
+       <div class="col-lg-5 col-md-5">
+            <ul class="aboutus">
+            
+			  <li>
+				<img class="img-responsive" src="{{url_for('static', filename='img/agency-img3.jpg') }}" alt="YOUR TEXT HERE">
+			  </li>
+			  
+		      <li>
+		       <img class="img-responsive" src="{{url_for('static', filename='img/agency-img2.jpg') }}" alt="YOUR TEXT HERE">
+		     </li>
+		     
+		     <li>
+		       <img class="img-responsive" src="{{url_for('static', filename='img/agency-img.jpg') }}" alt="YOUR TEXT HERE">
+		     </li>
+		
+		  </ul>
+
+       </div>
+         
+ </div>
+</div>
+
+<!-- ABOUT END -->
+     
+<!-- SERVICE -->
+     
+<div id="service">
+
+  <div class="container">
+
+    <div class="row">
+    
+     <div class="center-block head">
+       
+       <div class="col-lg-12 col-md-12 col-xs-12">
+     
+        <h1>Breadwinner</h1>
+        <hr class="head-border-white">
+         <p class="subhead">Hire. Recruit. Earn.</p>
+       </div>
+          
+      </div>
+      
+        <!-- SERVICE COLUMNS -->   
+        <div class="col-lg-4 col-md-4 service">
+         <div class="service-col">
+         
+           <div class="icon-desktop rotate">
+             <img src="{{url_for('static', filename='img/icons/webdesign.png') }}" alt="">
+           </div>
+           
+          <h4>Hire Helpers</h4>
+          <p>Search or Swipe through thousands of Helpers in a variety of jobs. Watch a 60 second interview of the helpers you are interested in. Check their verification and credentials. Know them well before you see them. Schedule an interview to give them a chance to work in your home or office.</p>
+          
+         </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-4 service">
+        <div class="service-col">
+        
+          <div class="icon-wrench rotate">
+            <img src="{{url_for('static', filename='img/icons/graphicdesign.png') }}" alt="">
+          </div>
+           
+          <h4>Recruit & Earn</h4>
+          <p>Earn a lot or a little on the side, on your own time, whenever you choose. Get paid to find helpers for your neighbors, friends, colleagues and community. It takes 5 minuets for you to ask a few questions, shoot a video and press a button; for them to get a job without you, it could take them 5 months.</p>
+          
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-4 service">
+        <div class="service-col">
+        
+          <div class="icon-mobile rotate">
+            <img src="{{url_for('static', filename='img/icons/mobile.png') }}" alt="">
+           </div>
+           
+          <h4>Trained and Certified</h4>
+          <p>Browse helpers from trusted professional staffing agencies. No need to risk being scammed or worse, all profiles are throughly examined so that you get only the most reliable and trustworthy.</p>
+          
+        </div>
+      </div>
+      
+      <div class="center-block service-btn">
+         <p class="center"><a class="btn btn-hire btn-primary" href="#contact" role="button">Get App</a></p>
+      </div>
+      
+     </div>
+   </div>
+</div>
+
+<!-- SERVICE END -->
+
+<!-- PORTFOLIO -->
+
+<div id="portfolio">
+
+  <div class="container">
+
+    
+      <div class="center-block head">
+      
+        <div class="col-lg-12 col-md-12 col-xs-12">
+      
+         <h1 class="d-grey">Hired Helpers</h1>
+           <hr class="head-border-grey">
+           
+        </div>
+      
+      </div>
+	
+                 <div class="filter-list">
+                    <ul class="nav nav-pills">
+                        <li><a class="filter" data-filter="all">All Helpers</a></li>
+                        <li><a class="filter" data-filter="100">Cleaners</a></li>
+                        <li><a class="filter" data-filter="200">Cooks</a></li>
+                        <li><a class="filter" data-filter="400">Office Assistant</a></li>
+                        <li><a class="filter" data-filter="cat_2">Thugs</a></li>
+                    </ul>
+                 </div>
+                    
+  <div class="clearfix"></div>
+  
+    <div id="Grid" class="row gallery">  
+      {% for help in helper%}
+              <div class="col-lg-3 col-md-6 col-sm-12 images {{help.helper_tag}} cat_1 all">
+                   <div class="image">
+                        <div class="overlay">
+                        
+                           <div class="caption">
+                            <h5>{{help.fName}}</h5>
+                             <p>Previous Job: {{help.pJobTitle}}</p>
+                              <p>
+                                 <a href="{{url_for('static', filename='img/portfolio/2.jpg') }}" title="ZOOM" class="magnific-popup btn btn-primary">More</a>
+                              </p>
+                            </div>
+                           
+                     <img class="img-responsive" src="{{help.picture}}" alt="" />
+                     
+                         </div>
+                    </div>
+              </div>
+      {% endfor %}
+                        
+              <div class="col-lg-3 col-md-6 col-sm-12 images mix cat_2 all">
+                   <div class="image">
+                        <div class="overlay">
+                        
+                           <div class="caption">
+                            <h5>Brojinder Pal Singh</h5>
+                             <p>O main kya, sadda Punja is only sadda Punja. Not twada Punja, remember that while you fetch me Parothas! pancho nirra kanjjar! :P</p>
+                              <p>
+                                 <a href="{{url_for('static', filename='img/portfolio/3.jpg') }}" title="ZOOM" class="magnific-popup btn btn-primary">Zoom</a>
+                              </p>
+                            </div>
+                           
+                     <img class="img-responsive" src="{{url_for('static', filename='img/portfolio/3.jpg') }}" alt="" />
+                     
+                         </div>
+                    </div>
+              </div>
+              
+              <div class="col-lg-3 col-md-6 col-sm-12 images mix cat_3 all">
+                   <div class="image">
+                        <div class="overlay">
+                        
+                           <div class="caption">
+                            <h5>Thumbnail Headline</h5>
+                             <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p>
+                              <p>
+                                 <a href="{{url_for('static', filename='img/portfolio/4.jpg') }}" title="ZOOM" class="magnific-popup btn btn-primary">Zoom</a>
+                              </p>
+                            </div>
+                           
+                     <img class="img-responsive" src="{{url_for('static', filename='img/portfolio/4.jpg') }}" alt="" />
+                     
+                         </div>
+                    </div>
+              </div>
+              
+              <div class="col-lg-3 col-md-6 col-sm-12 images mix cat_1 all">
+                   <div class="image">
+                        <div class="overlay">
+                        
+                           <div class="caption">
+                            <h5>Devi Bhatia</h5>
+                             <p>Wax it on and off, Mister Miyagi. Keep them floors clean, Hari Kari.</p>
+                              <p>
+                                 <a href="{{url_for('static', filename='img/portfolio/5.jpg') }}" title="ZOOM" class="magnific-popup btn btn-primary">Zoom</a>
+                              </p>
+                            </div>
+                           
+                     <img class="img-responsive" src="{{url_for('static', filename='img/portfolio/5.jpg') }}" alt="" />
+                     
+                         </div>
+                    </div>
+              </div>
+              
+              <div class="col-lg-3 col-md-6 col-sm-12 images mix cat_2 all">
+                   <div class="image">
+                        <div class="overlay">
+                        
+                           <div class="caption">
+                            <h5>Thumbnail Headline</h5>
+                             <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p>
+                              <p>
+                                 <a href="{{url_for('static', filename='img/portfolio/6.jpg') }}" title="ZOOM" class="magnific-popup btn btn-primary">Zoom</a>
+                              </p>
+                            </div>
+                           
+                     <img class="img-responsive" src="{{url_for('static', filename='img/portfolio/6.jpg') }}" alt="" />
+                     
+                         </div>
+                    </div>
+              </div>
+              
+              <div class="col-lg-3 col-md-6 col-sm-12 images mix cat_2 all">
+                   <div class="image">
+                        <div class="overlay">
+                        
+                           <div class="caption">
+                            <h5>Naresh Destroyer</h5>
+                             <p>He just kind of exists and occupies space and mass. Somehow the laws of society don't apply to him.</p>
+                              <p>
+                                 <a href="{{url_for('static', filename='img/portfolio/2.jpg') }}" title="ZOOM" class="magnific-popup btn btn-primary">Zoom</a>
+                              </p>
+                            </div>
+                           
+                     <img class="img-responsive" src="{{url_for('static', filename='img/portfolio/2.jpg') }}" alt="" />
+                     
+                         </div>
+                    </div>
+              </div>
+              
+              <div class="col-lg-3 col-md-6 col-sm-12 images mix cat_1 all">
+                   <div class="image">
+                        <div class="overlay">
+                        
+                           <div class="caption">
+                            <h5>Brijju Bhandarkar</h5>
+                             <p>Aarey Beedi Jalailay, Jiggar se piya. </p>
+                              <p>
+                                 <a href="{{url_for('static', filename='img/portfolio/3.jpg') }}" title="ZOOM" class="magnific-popup btn btn-primary">Zoom</a>
+                              </p>
+                            </div>
+                           
+                     <img class="img-responsive" src="{{url_for('static', filename='img/portfolio/3.jpg') }}" alt="" />
+                     
+                         </div>
+                    </div>
+              </div>
+              
+              <div class="col-lg-3 col-md-6 col-sm-12 images mix cat_3 all">
+                   <div class="image">
+                        <div class="overlay">
+                        
+                           <div class="caption">
+                            <h5>Thumbnail Headline</h5>
+                             <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p>
+                              <p>
+                                 <a href="{{url_for('static', filename='img/portfolio/4.jpg') }}" title="ZOOM" class="magnific-popup btn btn-primary">Zoom</a>
+                              </p>
+                            </div>
+                           
+                     <img class="img-responsive" src="{{url_for('static', filename='img/portfolio/4.jpg') }}" alt="" />
+                     
+                         </div>
+                    </div>
+              </div>
+              
+              <div class="col-lg-3 col-md-6 col-sm-12 images mix cat_1 all">
+                   <div class="image">
+                        <div class="overlay">
+                        
+                           <div class="caption">
+                            <h5>Khoti Jyoti</h5>
+                             <p>Khtoa is to a Donkey, is what Monkey is to Human</p>
+                              <p>
+                                 <a href="{{url_for('static', filename='img/portfolio/5.jpg') }}" title="ZOOM" class="magnific-popup btn btn-primary">Zoom</a>
+                              </p>
+                            </div>
+                           
+                     <img class="img-responsive" src="{{url_for('static', filename='img/portfolio/5.jpg') }}" alt="" />
+                     
+                         </div>
+                    </div>
+              </div>
+              
+              <div class="col-lg-3 col-md-6 col-sm-12 images mix cat_1 all">
+                   <div class="image">
+                        <div class="overlay">
+                        
+                           <div class="caption">
+                            <h5>Tap Sum Bong</h5>
+                             <p>Y U No hire me!? Me clean your home, long time!</p>
+                              <p>
+                                 <a href="{{url_for('static', filename='img/portfolio/6.jpg') }}" title="ZOOM" class="magnific-popup btn btn-primary">Zoom</a>
+                              </p>
+                            </div>
+                           
+                     <img class="img-responsive" src="{{url_for('static', filename='img/portfolio/6.jpg') }}" alt="" />
+                     
+                         </div>
+                    </div>
+              </div>
+              
+              <div class="col-lg-3 col-md-6 col-sm-12 images mix cat_3 all">
+                   <div class="image">
+                        <div class="overlay">
+                        
+                           <div class="caption">
+                            <h5>Thumbnail Headline</h5>
+                             <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p>
+                              <p>
+                                 <a href="{{url_for('static', filename='img/portfolio/2.jpg') }}" title="ZOOM" class="magnific-popup btn btn-primary">Zoom</a>
+                              </p>
+                            </div>
+                           
+                     <img class="img-responsive" src="{{url_for('static', filename='img/portfolio/2.jpg') }}" alt="" />
+                     
+                         </div>
+                    </div>
+              </div>
+              
+              <div class="col-lg-3 col-md-6 col-sm-12 images mix cat_2 all">
+                   <div class="image">
+                        <div class="overlay">
+                        
+                           <div class="caption">
+                            <h5>Thumbnail Headline</h5>
+                             <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p>
+                              <p>
+                                 <a href="{{url_for('static', filename='img/portfolio/3.jpg') }}" title="ZOOM" class="magnific-popup btn btn-primary">Zoom</a>
+                              </p>
+                            </div>
+                           
+                     <img class="img-responsive" src="{{url_for('static', filename='img/portfolio/3.jpg') }}" alt="" />
+                     
+                         </div>
+                    </div>
+              </div>
+                                      
+           </div>
+  </div>
+  
+</div>
+
+<!-- PORTFOLIO END -->
+
+<!-- TEAM  <a class="btn" href="{{url_for('static', filename='img/portfolio/2.jpg') }}" rel="prettyPhoto" title="YOUR CAPTION">View</a> -->
+
+<div id="team">
+  <div class="container">
+
+    <div class="row">
+    
+      <div class="center-block head">
+      
+        <div class="col-lg-12 col-md-12 col-xs-12">
+      
+         <h1 class="">Our Awesome Team</h1>
+           <hr class="head-border-white">
+            <p class="subhead">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p>
+            
+        </div>
+        
+      </div>
+                      
+       <!-- TEAM MEMBER -->  
+        
+        <div class="col-lg-3 col-md-3">
+        <div class="team team-member1">
+        
+          <div class="member1 rotate"></div>
+           
+          <h5>Jane Doe</h5>
+
+          <p class="job">CEO / Founder</p>
+          
+          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+          
+          <p class="social-team">
+            <a class="facebook" href=""><i class="fa fa-facebook-square fa-1-5x"></i></a>
+			<a class="twitter" href=""><i class="fa fa-twitter-square fa-1-5x"></i></a>
+			<a class="linkedin" href=""><i class="fa fa-linkedin-square fa-1-5x"></i></a>
+			<a class="pinterest" href=""><i class="fa fa-pinterest-square fa-1-5x"></i></a>
+			<a class="instagram" href=""><i class="fa fa-instagram fa-1-5x"></i></a>
+		   </p>
+          
+          </div>
+          
+        </div>
+        
+        <div class="col-lg-3 col-md-3">
+        <div class="team team-member2">
+        
+          <div class="member2 rotate"></div>
+           
+          <h5>Jane Doe</h5>
+          
+          <p class="job">CEO / Founder</p>
+          
+          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+          
+          <p class="social-team">
+            <a class="facebook" href=""><i class="fa fa-facebook-square fa-1-5x"></i></a>
+			<a class="twitter" href=""><i class="fa fa-twitter-square fa-1-5x"></i></a>
+			<a class="linkedin" href=""><i class="fa fa-linkedin-square fa-1-5x"></i></a>
+			<a class="pinterest" href=""><i class="fa fa-pinterest-square fa-1-5x"></i></a>
+			<a class="instagram" href=""><i class="fa fa-instagram fa-1-5x"></i></a>
+		   </p>
+          
+          </div>
+          
+        </div>
+        
+        <div class="col-lg-3 col-md-3">
+        <div class="team team-member3">
+        
+          <div class="member3 rotate"></div>
+           
+          <h5>Jane Doe</h5>
+          
+          <p class="job">CEO / Founder</p>
+          
+          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+          
+          <p class="social-team">
+            <a class="facebook" href=""><i class="fa fa-facebook-square fa-1-5x"></i></a>
+			<a class="twitter" href=""><i class="fa fa-twitter-square fa-1-5x"></i></a>
+			<a class="linkedin" href=""><i class="fa fa-linkedin-square fa-1-5x"></i></a>
+			<a class="pinterest" href=""><i class="fa fa-pinterest-square fa-1-5x"></i></a>
+			<a class="instagram" href=""><i class="fa fa-instagram fa-1-5x"></i></a>
+		   </p>
+          
+          </div>
+          
+        </div>
+        
+        <div class="col-lg-3 col-md-3">
+        <div class="team team-member4">
+        
+          <div class="member4 rotate"></div>
+           
+          <h5>Jane Doe</h5>
+          
+          <p class="job">CEO / Founder</p>
+          
+          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+             
+           <p class="social-team">
+            <a class="facebook" href=""><i class="fa fa-facebook-square fa-1-5x"></i></a>
+			<a class="twitter" href=""><i class="fa fa-twitter-square fa-1-5x"></i></a>
+			<a class="linkedin" href=""><i class="fa fa-linkedin-square fa-1-5x"></i></a>
+			<a class="pinterest" href=""><i class="fa fa-pinterest-square fa-1-5x"></i></a>
+			<a class="instagram" href=""><i class="fa fa-instagram fa-1-5x"></i></a>
+		   </p>
+
+          </div>
+          
+        </div>
+  </div>
+  </div>
+</div>
+
+<!-- TEAM  END-->
+
+<!-- PRICE -->
+
+<div id="price">
+
+  <div class="container">
+    <div class="row">
+    
+     <div class="center-block head tables">
+     
+      <div class="col-lg-12 col-md-12 col-xs-12">
+    
+       <h1>Best Price Guranteed</h1>
+       <hr class="head-border-grey">
+        <p class="d-grey center">When you pay to schedule an interview with a helper, you are paying someone just like you to find you a helper.</p>
+       
+      </div>
+       
+    </div>
+
+      
+      <!-- PRICE TABLES -->
+        <div class="col-lg-3 col-md-3">
+            <div class="price-table">
+                <div class="price-table-heading">
+                    <h3 class="price-table-title lead d-grey">
+                        Starter</h3>
+                </div>
+                <div class="price-table-body">
+                    <div class="the-price white">
+                        <h1>
+                            Rs.1000<span class="month">/Int</span></h1>
+                        <small>1 month FREE trial</small>
+                    </div>
+                    <table class="table">
+                        <tr>
+                            <td class="white">
+                                2 GB Disk Space
+                            </td>
+                        </tr>
+                        <tr class="active">
+                            <td class="blue">
+                                10 GB Bandwith
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="white">
+                                1 Databases
+                            </td>
+                        </tr>
+                        <tr class="active">
+                            <td class="blue">
+                                Daily Backup
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="white">
+                                1 Domains
+                            </td>
+                        </tr>
+                        <tr class="active">
+                            <td class="blue">
+                                24h Support
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="price-table-footer">
+                   <a href="" class="btn btn-lg btn-primary" role="button">Sign Up</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TABLE 2 -->
+        <div class="col-lg-3 col-md-3">
+            <div class="price-table">
+                <div class="price-table-heading">
+                    <h3 class="price-table-title lead d-grey">
+                        Basic</h3>
+                </div>
+                <div class="price-table-body">
+                    <div class="the-price white">
+                        <h1>
+                            $15<span class="month">/mo</span></h1>
+                        <small>1 month FREE trial</small>
+                    </div>
+                    <table class="table">
+                        <tr>
+                            <td class="white">
+                                5 GB Disk Space
+                            </td>
+                        </tr>
+                        <tr class="active">
+                            <td class="blue">
+                                20 GB Bandwith
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="white">
+                                5 Databases
+                            </td>
+                        </tr>
+                        <tr class="active">
+                            <td class="blue">
+                                Daily Backup
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="white">
+                                5 Domains
+                            </td>
+                        </tr>
+                        <tr class="active">
+                            <td class="blue">
+                                24h Support
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="price-table-footer">
+                   <a href="" class="btn btn-lg btn-primary" role="button">Sign Up</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- TABLE 3 -->
+        <div class="col-lg-3 col-md-3">
+            <div class="price-table table-feature">
+                <div class="price-table-heading">
+                    <h3 class="price-table-title lead d-grey">
+                        Feature</h3>
+                </div>
+                <div class="price-table-body">
+                    <div class="the-price white">
+                        <h1>
+                            $25<span class="month">/mo</span></h1>
+                        <small>1 month FREE trial</small>
+                    </div>
+                    <table class="table">
+                        <tr>
+                            <td class="white">
+                                10 GB Disk Space
+                            </td>
+                        </tr>
+                        <tr class="active">
+                            <td class="blue">
+                                30 GB Bandwith
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="white">
+                                10 Databases
+                            </td>
+                        </tr>
+                        <tr class="active">
+                            <td class="blue">
+                                Daily Backup
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="white">
+                                10 Domains
+                            </td>
+                        </tr>
+                        <tr class="active">
+                            <td class="blue">
+                                24h Support
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="price-table-footer">
+                   <a href="" class="btn btn-lg btn-primary" role="button">Sign Up</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TABLE 4 -->
+        <div class="col-lg-3 col-md-3">
+            <div class="price-table">
+                <div class="price-table-heading">
+                    <h3 class="price-table-title lead d-grey">
+                        Professional</h3>
+                </div>
+                <div class="price-table-body">
+                    <div class="the-price white">
+                        <h1>
+                            $35<span class="month">/mo</span></h1>
+                        <small>1 month FREE trial</small>
+                    </div>
+                    <table class="table">
+                        <tr>
+                            <td class="white">
+                                15 GB Disk Space
+                            </td>
+                        </tr>
+                        <tr class="active">
+                            <td class="blue">
+                                40 GB Bandwith
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="white">
+                                15 Databases
+                            </td>
+                        </tr>
+                        <tr class="active">
+                            <td class="blue">
+                                Daily Backup
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="white">
+                                15 Domains
+                            </td>
+                        </tr>
+                        <tr class="active">
+                            <td class="blue">
+                                24h Support
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="price-table-footer">
+                   <a href="" class="btn btn-lg btn-primary" role="button">Sign Up</a>
+                </div>
+            </div>
+        </div>
+        
+  </div>
+ </div>
+</div>
+
+<!-- PRICE END -->
+
+<!-- PROCESS -->
+
+<div id="process">
+
+  <div class="container">
+      <div class="row">
+    
+      <div class="center-block head">
+      
+       <div class="col-lg-12 col-md-12 col-xs-12">
+     
+        <h1>How We Do</h1>
+        <hr class="head-border-white">
+          <p class="subhead center">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p>
+          
+       </div>
+         
+      </div>
+      
+      <div class="our-process">
+           
+             <div class="process">
+                <div class="col-lg-4 process-con img1">
+                   <div class="process-img rotate">
+                      <img src="{{url_for('static', filename='img/icons/idea.png') }}" alt=""> 
+                   </div>
+                   <h5>Inspiration</h5>
+                </div>
+                
+               <div class="col-lg-4 process-con img2">
+                 <div class="process-img rotate">
+                   <img src="{{url_for('static', filename='img/icons/creation.png') }}" alt="">  
+                 </div>
+                 <h5>Creation</h5>
+               </div>
+               
+               <div class="col-lg-4 process-con img3">
+                 <div class="process-img rotate">
+                  <img src="{{url_for('static', filename='img/icons/presentation.png') }}" alt="">   
+                 </div>
+                 <h5>Presentation</h5>
+               </div> 
+            </div>
+       </div>
+
+   </div>
+  </div>
+  
+</div>
+
+<!-- PROCESS END -->
+
+<!-- CLIENTS -->
+
+<div id="clients">
+
+  <div class="container">
+      <div class="row">
+    
+      <div class="center-block head">
+      
+       <div class="col-lg-12 col-md-12 col-xs-12">
+     
+        <h1>What Our Clients Say</h1>
+        <hr class="head-border-grey">
+         <p class="d-grey center">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p>
+        
+       </div>
+         
+      </div>
+      
+    <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+    
+      <ul class="testemonials">
+            
+			  <li>
+			  <blockquote>
+				<p><i>A Tiger doesn't lose sleep over the opinon of sheep</i></p>
+				<p class="author">- Tiger</p>	
+			  </blockquote>
+			  </li>
+			  
+		      <li>
+		      <blockquote>
+		       <p><i>Baap Ka, Dada ka, bhai ka sabka badla lega re tera Phaijal</i></p>
+		       <p class="author">- Faizal Khan</p>
+		     </blockquote>
+		     </li>
+		     
+		     <li>
+		     <blockquote>
+		       <p><i>What you seek is seeking you too</i></p>
+		       <p class="author">- Unknown</p>
+		     </blockquote>
+		     </li>
+		
+		  </ul>
+    
+    </div>
+           
+<!-- CLIENTS SLIDER -->
+
+   <div class="col-lg-12 col-md-12">
+      <ul id="clientslider">
+       <li><img src="{{url_for('static', filename='img/clients/logo-01.png') }}" alt=""/></li><!-- ADD MORE IMAGE HERE -->
+       <li><img src="{{url_for('static', filename='img/clients/logo-02.png') }}" alt=""/></li>
+       <li><img src="{{url_for('static', filename='img/clients/logo-03.png') }}" alt=""/></li>
+       <li><img src="{{url_for('static', filename='img/clients/logo-04.png') }}" alt=""/></li>
+       <li><img src="{{url_for('static', filename='img/clients/logo-05.png') }}" alt=""/></li>
+       <li><img src="{{url_for('static', filename='img/clients/logo-01.png') }}" alt=""/></li>
+       <li><img src="{{url_for('static', filename='img/clients/logo-02.png') }}" alt=""/></li>
+       <li><img src="{{url_for('static', filename='img/clients/logo-03.png') }}" alt=""/></li>
+       <li><img src="{{url_for('static', filename='img/clients/logo-04.png') }}" alt=""/></li>   
+       <li><img src="{{url_for('static', filename='img/clients/logo-05.png') }}" alt=""/></li> 
+       </ul>  
+   </div> 
+
+   </div>
+  </div>
+</div>
+
+<!-- CLIENTS END -->
+
+<!-- FACTS -->
+     
+<div id="facts">
+
+  <div class="container">
+
+    <div class="row">
+    
+     <div class="center-block head">
+     
+      <div class="col-lg-12 col-md-12 col-xs-12">
+     
+        <h1>Fun Facts</h1>
+        <hr class="head-border-white">
+         <p class="subhead">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p>
+         
+       </div>
+         
+      </div>
+      
+        <!-- SERVICE COLUMNS -->   
+        <div class="col-lg-3 col-md-3">
+           <div class="fun-fact">
+            <h3>Facebook<br> Likes</h3>
+            <hr class="head-border-grey">
+            <p>9483</p>
+           </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-3">
+           <div class="fun-fact">
+            <h3>Partys<br> Celebrated</h3>
+            <hr class="head-border-grey">
+            <p>143</p>
+           </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-3">
+           <div class="fun-fact">
+            <h3>Products<br> Sales</h3>
+            <hr class="head-border-grey">
+            <p>10923</p>
+           </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-3">
+           <div class="fun-fact">
+            <h3>Coffee<br> Made</h3>
+            <hr class="head-border-grey">
+            <p>30295</p>
+           </div>
+          </div>
+          
+      </div>
+   </div>
+</div>
+
+<!-- FACTS END -->
+
+<!-- GOOGLE MAP DIVIDER -->
+
+<div id="map">
+  <iframe class="border" src="{{url_for('static', filename='img/google_maps_placeholder.jpg') }}" scrolling="no"><!-- Place Your Google Map Link here -->
+  </iframe>
+</div>
+
+<!-- GOOGLE MAP DIVIDER END -->
+
+<!-- CONTACT -->
+
+<div id="contact">
+
+  <div class="container">
+     <div class="row">
+    
+      <div class="center-block head">
+      
+       <div class="col-lg-12 col-md-12 col-xs-12">
+    
+         <h1>Get in Touch</h1>
+         <hr class="head-border-grey">
+           <p class="center">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p>
+        
+       </div>
+       
+    </div>
+      
+      <!-- CONTACT FORM -->
+      <div class="col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2 form">
+      <!--FORM -->
+      <form action="{{url_for('static', filename='contact.php') }}" class="form-horizontal" role="form" id="contactForm" method="post" name="contactForm">
+            
+            <div class="form-group">
+               
+                <div class="col-sm-12">
+                <input type="text" class="form-control input-lg" name="name" id="name" placeholder="Name*">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                  
+                    <div class="col-sm-12">
+                      <input type="email" class="form-control input-lg" name="email" id="email" placeholder="Email*">
+                  </div>
+            </div>
+            
+            <div class="form-group">
+                  
+                    <div class="col-sm-12">
+                      <input type="text" class="form-control input-lg" name="phone" id="phone" placeholder="Phone">
+                  </div>
+            </div>
+            
+            <div class="form-group">
+                  
+                    <div class="col-sm-12">
+                      <textarea class="form-control input-lg" rows="10" name="message" id="message" placeholder="Message*"></textarea>
+                  </div>
+            </div>
+            
+            <div class="control-group submit center">
+               <input class="btn btn-lg btn-primary" type="submit" value="Submit">
+            </div>
+
+           </form>
+           
+           <p class="d-grey requi">* Required</p>
+      
+      </div>
+      
+     </div>
+  </div>
+</div>
+
+<!-- CONTACT END -->
+
+<!-- GOING UP ARROW -->
+
+<div class="col-lg-12">
+  <div class="up"><a href="#about"><span class="glyphicon glyphicon-chevron-up"></span></a></div>
+</div>
+
+<!-- GOING UP ARROW END -->
+
+<!-- SOCIAL MEDIA DIVIDER -->
+
+<div id="divider">
+		<div class="divider-bg"></div>
+
+  <div class="container">
+  
+	<div class="row">
+        <div class="col-12-lg social-media">
+        
+    		<div class="social-icons">
+    		
+                <a class="social-media facebook" href=""><i class="fa fa-facebook-square fa-8x"></i></a>
+				<a class="social-media white twitter" href=""><i class="fa fa-twitter-square fa-8x"></i></a>
+				<a class="social-media white linkedin" href=""><i class="fa fa-linkedin-square fa-8x"></i></a>
+				<a class="social-media white pinterest" href=""><i class="fa fa-pinterest-square fa-8x"></i></a>
+				<a class="social-media white google" href=""><i class="fa fa-google-plus-square fa-8x"></i></a>
+				<a class="social-media white tumblr" href=""><i class="fa fa-tumblr-square fa-8x"></i></a>
+				<a class="social-media white instagram" href=""><i class="fa fa-instagram fa-8x"></i></a>
+              
+            </div>  
+              
+        </div>
+	</div>
+  
+  </div>
+
+</div>
+
+<!-- SOCIAL MEDIA DIVIDER END --> 
+
+<!-- BOTTOM -->
+
+<div id="foot">
+
+  <div class="container">
+     <div class="row">
+     
+      <div class="col-lg-4 col-md-4">
+        <div class="bottom-con">
+        
+           <h5>Visit Us</h5>
+           <hr class="head-border-white">
+            
+             <div class="">
+             <p><i class="fa fa-location-arrow"><span> 963 Sector 17B</span></i></p>
+             <p><i class="fa fa-map-marker"><span> Gurgaon, HR 122001</span></i></p>
+             <p><i class="fa fa-flag"><span> India</span></i></p>
+           </div>
+            
+        </div>
+    </div>
+ 
+    <div class="col-lg-4 col-md-4">
+        <div class="bottom-con">
+        
+           <h5>Write Us</h5>
+           <hr class="head-border-white">
+            
+             <div class="">
+             <p><i class="fa fa-phone"><span> +91 959 924 0963</span></i></p>
+             <p><i class="fa fa-envelope"><span> angad737@gmail.com</span></i></p>
+             <p><i class="fa fa-print"><span> +91 120 245 1393</span></i></p>
+           </div>
+            
+        </div>
+    </div>
+       
+    <div class="col-lg-4 col-md-4">
+            
+            <div class="bottom-con">
+    		
+                <h5>Newsletter</h5>
+                <hr class="head-border-white">
+
+              <form action="#" method="post" class="newsletter">
+                    <div class="input-group">
+                      <span class="input-group-addon .glyphicon-envelope"><i class="fa fa-envelope orange"></i></span>
+                      <input type="email" class="form-control input-md" placeholder="Enter email">
+                     </div>
+                <br>
+                
+                <div class="control-group submit center">
+                  <input type="submit" value="Subscribe Now!" class="btn btn-md btn-primary" />
+                </div>
+                    
+              </form>
+              
+            </div> 
+            
+    </div>
+          
+           <div class="col-lg-12 col-md-12 footer">
+               <p class="pull-right"><a href="#about">Back to top</a></p>
+                  <p>&copy; 2016 Catalyst LLC. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+           </div> 
+           
+     </div>
+  </div>
+  
+</div>
+
+<!-- FOOTER END -->
+
+<!-- COLOR SWITCH. Change Styles at the color.switch.css file -->
+
+<div class="editor">
+
+    <div class="panel">
+
+      <h5>Choose your Color</h5>
+      
+      <div id="changecss">
+      
+      <div class="row">
+      
+      <div class="circle-skin" ><a href="javascript: void(0)" title="switch styling" id="theme1"><div class="left skin1-l"></div><div class="right skin1-r"></div></a></div>
+      
+      <div class="circle-skin" ><a href="javascript: void(0)" title="switch styling" id="theme2"><div class="left skin2-l"></div><div class="right skin2-r"></div></a></div>
+      
+      <div class="circle-skin" ><a href="javascript: void(0)" title="switch styling" id="theme3"><div class="left skin3-l"></div><div class="right skin3-r"></div></a></div> 
+      
+      <div class="circle-skin" ><a href="javascript: void(0)" title="switch styling" id="theme4"><div class="left skin4-l"></div><div class="right skin4-r"></div></a></div> 
+      
+      <div class="circle-skin" ><a href="javascript: void(0)" title="switch styling" id="theme5"><div class="left skin5-l"></div><div class="right skin5-r"></div></a></div> 
+      
+      <div class="circle-skin" ><a href="javascript: void(0)" title="switch styling" id="theme6"><div class="left skin6-l"></div><div class="right skin6-r"></div></a></div> 
+      
+      </div>
+      
+      </div>
+      
+      <div class="clearfix"></div>
+       
+
+  </div>
+
+     <div class="switch">
+         <i class="fa fa-cog fa-spin fa-2x"></i>
+     </div>
+
+</div>
+
+<!-- COLOR SWITCH END -->
+
+<!-- END PRIMARY LAYOUT
+====================== -->
+
+
+<!-- JAVASCRIPT
+================================================== -->
+
+<!-- BOOTSTRAP JAVASCRIPT -->
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+<!-- CUSTOM JAVASCRIPT -->
+<!-- Custom Functions -->
+<script type="text/javascript" src="{{url_for('static', filename='js/functions.js') }}"></script> 
+
+<!-- Portfolio with mixitup filter and prettyphoto -->
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery.mixitup.min.js') }}"></script> 
+<!-- Magnific Popup core JS file -->
+<script type="text/javascript" src="{{url_for('static', filename='js/magnific.js') }}"></script>
+
+<!-- BxSlider -->
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery.bxslider.min.js') }}"></script>
+
+<!-- Sequence Slider -->
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery.sequence-min.js') }}"></script>
+
+<!-- Parallax Background -->
+<script type="text/javascript" src="{{url_for('static', filename='js/nbw-parallax.js') }}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery.inview.js') }}"></script>
+
+<!-- Smooth Scrolling -->
+<script type="text/javascript" src="{{url_for('static', filename='js/smoothscroll.js') }}"></script>
+
+<!-- Sticky Navigation --> 
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery.sticky.js') }}"></script>
+
+<!-- Style Switcher --> 
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery.style-switcher.js') }}"></script>
+
+<!-- Clients Slider -->
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery.flexisel.js') }}"></script>
+
+<!-- Retina JS -->
+<script type="text/javascript" src="{{url_for('static', filename='js/retina-1.1.0.min.js') }}"></script>
+
+
+</body>
+</html>
